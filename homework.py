@@ -22,7 +22,7 @@ class Calculator:
 
     def get_today_stats(self):
         moment = dt.datetime.now().date()
-        num = sum([i.amount for i in self.records if i.date == moment])
+        num = sum(i.amount for i in self.records if i.date == moment)
         return num
 
     def get_week_stats(self):
@@ -50,23 +50,24 @@ class CashCalculator(Calculator):
     def get_today_cash_remained(self, currency):
         today_stats = self.get_today_stats()
         other_limit = self.limit - today_stats
-        self.rate = {
+        currencies = {
              'usd': (self.USD_RATE, 'USD'),
              'eur': (self.EURO_RATE, 'Euro'),
              'rub': (1, 'руб')
         }
 
-        for i in self.rate.keys():
-            if i == currency:
-                currency_number = self.rate[i][0]
-                currency_name = self.rate[i][1]
+        if currency in currencies:
+            currency_number = currencies[currency][0]
+            currency_name = currencies[currency][1]
         if today_stats < self.limit:
-            return (f'На сегодня осталось {round(other_limit / currency_number, 2)} {currency_name}')
+            return ('На сегодня осталось '
+                    f'{round(other_limit / currency_number, 2)} {currency_name}')
         elif today_stats == self.limit:
             return ('Денег нет, держись')
         else:
             debt = abs(other_limit)
-            return (f'Денег нет, держись: твой долг - {round(debt / currency_number, 2)} {currency_name}')
+            return ('Денег нет, держись: твой долг - '
+                    f'{round(debt / currency_number, 2)} {currency_name}')
 
 
 if __name__ == '__main__':
