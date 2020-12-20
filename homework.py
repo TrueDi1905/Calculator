@@ -69,10 +69,10 @@ class CashCalculator(Calculator):
             return (f'Денег нет, держись: твой долг - {round(debt / currency_number, 2)} {currency_name}')
 
 
-
-cash_calculator = CashCalculator(1000)
-
 if __name__ == '__main__':
+    cash_calculator = CashCalculator(1000)
+
+
     cash_calculator.add_record(Record(amount=145, comment="кофе"))
     cash_calculator.add_record(Record(amount=300, comment="Серёге за обед"))
     cash_calculator.add_record(Record(amount=3000, comment="бар в Танин др", date="08.11.2019"))
