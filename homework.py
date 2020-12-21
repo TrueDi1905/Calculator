@@ -39,7 +39,7 @@ class CaloriesCalculator(Calculator):
             other = self.limit - number
             return ('Сегодня можно съесть что-нибудь ещё, '
                     f'но с общей калорийностью не более {round(other, 2)} кКал')
-        elif number >= self.limit:
+        else:
             return ('Хватит есть!')
 
 
@@ -59,12 +59,14 @@ class CashCalculator(Calculator):
         if currency in currencies:
             currency_number = currencies[currency][0]
             currency_name = currencies[currency][1]
+        else:
+            return ('Валюта не найдена')
         if today_stats < self.limit:
             return ('На сегодня осталось '
                     f'{round(other_limit / currency_number, 2)} {currency_name}')
         elif today_stats == self.limit:
             return ('Денег нет, держись')
-        else:
+        elif today_stats > self.limit:
             debt = abs(other_limit)
             return ('Денег нет, держись: твой долг - '
                     f'{round(debt / currency_number, 2)} {currency_name}')
