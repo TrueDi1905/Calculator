@@ -19,9 +19,9 @@ Python 3.7
 - создадим калькулятор денег с дневным лимитом 1000
   - ``` cash_calculator = CashCalculator(1000) ```
 - добавляем записи о расходах. Дата проставится автоматически, но можно указать и самому.
-  - ``` cash_calculator.add_record(Record(amount=145, comment="кофе"))
-  - cash_calculator.add_record(Record(amount=300, comment="Серёге за обед"))
-  - cash_calculator.add_record(Record(amount=3000, comment="бар в Танин др", date="08.11.2019")) ```
+  - ``` cash_calculator.add_record(Record(amount=145, comment="кофе")) ```
+  - ``` cash_calculator.add_record(Record(amount=300, comment="Серёге за обед")) ```
+  - ``` cash_calculator.add_record(Record(amount=3000, comment="бар в Танин др", date="08.11.2019")) ```
 - Узнаем солько ещё сегодня можно потратить в долларах
   - ``` print(cash_calculator.get_today_cash_remained("usd")) ```
 ### Автор
