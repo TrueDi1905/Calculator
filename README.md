@@ -16,8 +16,8 @@ Python 3.7
 - Определять, сколько ещё калорий можно/нужно получить сегодня — метод get_calories_remained()
 - Считать, сколько калорий получено за последние 7 дней — метод get_week_stats()
 #### Пример использования.
-создадим калькулятор денег с дневным лимитом 1000
-cash_calculator = CashCalculator(1000)
+- создадим калькулятор денег с дневным лимитом 1000
+  - cash_calculator = CashCalculator(1000)
 добавляем записи о расходах. Дата проставится автоматически.
 cash_calculator.add_record(Record(amount=145, comment="кофе"))
 cash_calculator.add_record(Record(amount=300, comment="Серёге за обед"))
