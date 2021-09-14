@@ -15,5 +15,14 @@ Python 3.7
 - Считать, сколько калорий уже съедено сегодня — метод get_today_stats()
 - Определять, сколько ещё калорий можно/нужно получить сегодня — метод get_calories_remained()
 - Считать, сколько калорий получено за последние 7 дней — метод get_week_stats()
+#### Пример использования.
+#Создадим калькулятор денег
+cash_calculator = CashCalculator(1000)
+
+
+    cash_calculator.add_record(Record(amount=145, comment="кофе"))
+    cash_calculator.add_record(Record(amount=300, comment="Серёге за обед"))
+    cash_calculator.add_record(Record(amount=3000, comment="бар в Танин др", date="08.11.2019"))
+    print(cash_calculator.get_today_cash_remained("usd"))
 ### Автор
 Агафонов Дмитрий
